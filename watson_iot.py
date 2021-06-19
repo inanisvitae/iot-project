@@ -66,7 +66,15 @@ while min(countBarometer, countIRtemperature, countHumidity) is not 30:
     time.sleep(1)
 
 
-f = open('data.txt', 'a')
-for i in range(30):
-    f.write(str(collector['barometer'][i]) + ' ' + str(collector['humidity'][i]) + ' ' + str(collector['IRtemperature'][i]))
+f = open('barometer_data.txt', 'a')
+for i in range(len(collector['barometer'])):
+    f.write(str(collector['barometer'][i]) + '\n')
+f.close()
+f = open('humidity_data.txt', 'a')
+for i in range(len(collector['barometer'])):
+    f.write(str(collector['humidity'][i]) + '\n')
+f.close()
+f = open('fahrenheit_data.txt', 'a')
+for i in range(len(collector['barometer'])):
+    f.write(str(collector['IRtemperature'][i]) + '\n')
 f.close()
